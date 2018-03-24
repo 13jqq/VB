@@ -1,0 +1,29 @@
+  Public Class Form1
+    Dim A() As Integer = New Integer(9) {}
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim out As String
+        out = ""
+        TextBox2.Text = ""
+        Dim random As Random = New Random
+        For i As Integer = 0 To A.GetUpperBound(0)
+            A(i) = random.Next(100)
+            out &= A(i) & vbCrLf
+        Next
+        TextBox1.Text = out
+        Button2.Enabled = True
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim out As String
+        out = ""
+        Array.Sort(A)
+        For i As Integer = 0 To A.GetUpperBound(0)
+            out &= A(i) & vbCrLf
+        Next
+        TextBox2.Text = out
+        Button2.Enabled = False
+    End Sub
+End Class
